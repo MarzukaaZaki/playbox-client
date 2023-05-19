@@ -1,4 +1,4 @@
-**Table of Contents**
+## Table of Contents
 - [Playbox Toy-store Client Side Project](#playbox-toy-store-client-side-project)
 - [Website Structure](#website-structure)
 - [Features](#features)
@@ -8,7 +8,7 @@
 
 Playbox Toystore is a website that allows sellers to post video game toys for kids. 
 
-The project has been deployed using firebase. The live site link can be found here.
+The project has been deployed using firebase. The live site link can be found [here](https://playbox-toystore-3f329.web.app/).
 
 # Website Structure
 - Homepage
