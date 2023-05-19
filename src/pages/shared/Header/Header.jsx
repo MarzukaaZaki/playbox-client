@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../../providers/AuthProviders';
 
 const Header = () => {
-    const {logOut} = useContext(AuthContext);
+    const {user, logOut} = useContext(AuthContext);
     const handleLogOut = () =>{
         logOut()
         .then(()=>{})
@@ -10,8 +10,16 @@ const Header = () => {
     }
     return (
         <div>
-            <h2>Header goes here</h2>
+            <h2>Header goes here.</h2>
+            {user ?
+                <div>
+                    Hello, {user.displayName}
+                </div>:
+                ''
+                
+            }
             <button className='btn btn-primary' onClick={handleLogOut}>Log Out</button>
+            
         </div>
     );
 };
