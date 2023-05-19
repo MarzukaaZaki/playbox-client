@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
 
 const Login = () => {
-    const { googleLogIn } = useContext(AuthContext);
+    const { googleLogIn, logIn } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
@@ -19,6 +19,26 @@ const Login = () => {
             })
             .catch(error => setError(error.message))
     }
+
+    // Handle Log In with Email, Password
+    const handleLogIn = event => {
+        event.preventDefault();
+        setSuccess('');
+        const form = event.target;
+
+        const email = form.email.value;
+        const password = form.password.value;
+
+        logIn(email, password)
+            .then(result => {
+                const loggedInUser = result.user;
+                setSuccess('You are Logged In.');
+                setError('');
+                form.reset();
+            })
+            .catch(error => { setError(error.message); })
+
+    }
     return (
         <div className="hero min-h-screen bg-base-200">
             <div>
@@ -31,18 +51,18 @@ const Login = () => {
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 
-                        <form className="card-body">
+                        <form className="card-body" onSubmit={handleLogIn}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" placeholder="email" className="input input-bordered" />
+                                <input type="email" placeholder="email" name='email' className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="password" className="input input-bordered" />
+                                <input type="password" placeholder="password" name='password' className="input input-bordered" />
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
@@ -59,13 +79,12 @@ const Login = () => {
 
                 </div>
                 <div className='text-center py-6'>
-                    {!success || error ?
-                        <div>
-                        <button className="btn btn-outline btn-primary rounded" onClick={handleGoogleLogIn}>Log In with Google</button>
-                        <p className='text-red-600'>{error}</p> 
-                        </div>:
-                        <p className='text-green-600'>{success}</p>
-                    }
+
+                    <button className="btn btn-outline btn-primary rounded" onClick={handleGoogleLogIn}>Log In with Google</button>
+                    <p className='text-red-600'>{error}</p>
+
+                    <p className='text-green-600'>{success}</p>
+
                 </div>
 
             </div>
