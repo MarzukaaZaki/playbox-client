@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../providers/AuthProviders';
 import { Link } from 'react-router-dom';
-import pic from '../../../assets/user.jpg'
-import { Tooltip } from 'daisyui';
+import logo from '../../../assets/logo.png'
+import './Header.css'
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -15,11 +15,11 @@ const Header = () => {
         <div>
             <div className="navbar bg-base-100">
                 <div className="navbar-start hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
-                        <li><Link>Home</Link></li>
-                        <li><Link>About</Link></li>
-                        <li><Link>Toys</Link></li>
-                        <li><Link>Blog</Link></li>
+                    <ul className="menu menu-horizontal px-1 text-xl">
+                        <li><Link to='/'>Home</Link></li>
+                        <li><Link to='/about'>About</Link></li>
+                        <li><Link to='/'>Toys</Link></li>
+                        <li><Link to='/blog'>Blog</Link></li>
 
                     </ul>
                 </div>
@@ -29,10 +29,11 @@ const Header = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><a>Home</a></li>
-                            <li><a>About</a></li>
-                            <li><a>Toys</a></li>
-                            <li><a>Blog</a></li>
+                            <li><Link to='/'>Home</Link></li>
+                            <li><Link to='/about'>About</Link></li>
+                            <li><Link to='/'>Toys</Link></li>
+                            <li><Link to='/blog'>Blog</Link></li>
+
 
                             <li><a>See My Toys</a></li>
                             <li><a>Add New Toy</a></li>
@@ -40,18 +41,20 @@ const Header = () => {
 
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">PLAYBOX</a>
+                    <a className="text-xl">
+                        <img src={logo} alt="logo" className='logo' />
+                    </a>
                 </div>
                 <div className="navbar-end">
 
-                    { user ?
+                    {user ?
                         <div>
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full me-2" >
-                                    
-                                    <img src={user.photoURL} className='tooltip text-black' data-tip ={user.displayName}/>
-                                   
-                                    
+
+                                    <img src={user.photoURL} className='tooltip text-black' data-tip={user.displayName} />
+
+
                                 </div>
                             </label>
 
@@ -69,9 +72,9 @@ const Header = () => {
                             </div>
                         </div>
                         :
-                        <div>
-                            <Link to='/register' className='me-8'>Register</Link>
-                            <Link to='/login' className='me-6'>Log In</Link>
+                        <div className='text-xl'>
+                            <Link to='/register' className='me-2'>Register</Link>
+                            <Link to='/login'> Log In</Link>
                         </div>
 
                     }
