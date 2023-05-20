@@ -1,12 +1,19 @@
 import React, { useContext, useState } from 'react';
 import img from '../../assets/login.png'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
 
 const Login = () => {
     const { googleLogIn, logIn } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+
+    
+    const navigate = useNavigate();
+
+    // Get location from where the user has been redirected to login page
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     // Handle Google Log In
     const handleGoogleLogIn = () => {
@@ -16,6 +23,7 @@ const Login = () => {
                 const loggedInUser = result.user;
                 setSuccess('You are logged in with Google.');
                 setError('');
+                navigate(from);
             })
             .catch(error => setError(error.message))
     }
@@ -35,6 +43,7 @@ const Login = () => {
                 setSuccess('You are Logged In.');
                 setError('');
                 form.reset();
+                navigate(from);
             })
             .catch(error => { setError(error.message); })
 

@@ -36,7 +36,7 @@ const Header = () => {
 
 
                             <li><a>See My Toys</a></li>
-                            <li><a>Add New Toy</a></li>
+                            <li><Link to='/addtoy'>Add New Toy</Link></li>
 
 
                         </ul>
@@ -66,7 +66,7 @@ const Header = () => {
                                 </label>
                                 <ul tabIndex={0} className="menu menu-compact dropdown-content p-2 shadow bg-base-100 rounded-box w-52">
                                     <li><Link>See My Toys</Link></li>
-                                    <li><Link>Add New Toy</Link></li>
+                                    <li><Link to='/addtoy'>Add New Toy</Link></li>
                                     <li><Link onClick={handleLogOut}>Logout</Link></li>
                                 </ul>
                             </div>
