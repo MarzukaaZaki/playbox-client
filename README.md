@@ -34,6 +34,10 @@ Playbox provides the following features:
 # Resources and Packages Used
 - [ReactJS](https://react.dev/)
 - [React Router](https://reactrouter.com/)
+- [React Hook Form](https://react-hook-form.com/)
+- [React Toastify](https://fkhadra.github.io/react-toastify/introduction/)
+- [React Ratings Star Component](https://www.npmjs.com/package/react-rating-stars-component)
+- [React Responsive Masonry](https://www.npmjs.com/package/react-responsive-carousel)
 - [Tailwind CSS](https://tailwindcss.com/docs/installation)
 - [Daisy UI](https://daisyui.com/)
 - [Firebase](https://firebase.google.com/)
