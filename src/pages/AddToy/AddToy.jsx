@@ -74,7 +74,7 @@ const AddToy = () => {
 
 
                     {/* include validation with required or other standard HTML validation rules */}
-                    <input placeholder='Name of Toy' {...register("toy-name", { required: true })} className='border rounded p-2 mx-2 my-2' />
+                    <input placeholder='Name of Toy' {...register("toyname", { required: true })} className='border rounded p-2 mx-2 my-2' />
                     {/* errors will return when field validation fails  */}
                     {errors.exampleRequired && <span>This field is required</span>}
 
@@ -84,7 +84,7 @@ const AddToy = () => {
 
 
                     {/* register your input into the hook by invoking the "register" function */}
-                    <input placeholder='Toy Image URL' type='url' {...register("img-url", { required: true })} className='border rounded p-2 mx-2 my-2' />
+                    <input placeholder='Toy Image URL' type='url' {...register("img", { required: true })} className='border rounded p-2 mx-2 my-2' />
                     {/* errors will return when field validation fails  */}
                     {errors.exampleRequired && <span>This field is required</span>}
 
