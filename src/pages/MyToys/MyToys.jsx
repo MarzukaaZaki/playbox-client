@@ -24,7 +24,7 @@ const MyToys = () => {
     const navigate = useNavigate();
 
     const handleUpdate = (data) =>{
-        fetch(` https://playbox-server.vercel.app/update/${data?._id}`,{
+        fetch(`https://playbox-server.vercel.app/update/${data?._id}`,{
             method: 'PUT',
             headers: {
                 "content-type": "application/json"
@@ -41,6 +41,19 @@ const MyToys = () => {
       
 
 
+    }
+
+    const handleDelete = (_id) =>{
+        fetch(`https://playbox-server.vercel.app/delete/${_id}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.deletedCount){
+                toast.success('Deleted Toy')
+            }
+        })
     }
     return (
         <div className="overflow-x-auto w-full">
@@ -90,7 +103,7 @@ const MyToys = () => {
                             <th>
                                 {/* The button to open modal */}
                                 <label htmlFor="update-modal" className="btn btn-ghost btn-outline me-2">update</label>
-                                <label htmlFor="my-modal-6" className="btn btn-ghost btn-outline">delete</label>
+                                <button onClick={()=>{handleDelete(toy._id)}} className="btn btn-ghost btn-outline">delete</button>
 
                                 <UpdateModal toy={toy} handleUpdate ={handleUpdate}></UpdateModal>
 
