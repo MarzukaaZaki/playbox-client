@@ -35,10 +35,6 @@ const Header = () => {
                             <li><Link to='/blog'>Blog</Link></li>
 
 
-                            <li><a>See My Toys</a></li>
-                            <li><Link to='/addtoy'>Add New Toy</Link></li>
-
-
                         </ul>
                     </div>
                     <a className="text-xl">
@@ -65,7 +61,7 @@ const Header = () => {
                                     Choose an Action
                                 </label>
                                 <ul tabIndex={0} className="menu menu-compact dropdown-content p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li><Link>See My Toys</Link></li>
+                                    <li><Link to='/mytoys'>See My Toys</Link></li>
                                     <li><Link to='/addtoy'>Add New Toy</Link></li>
                                     <li><Link onClick={handleLogOut}>Logout</Link></li>
                                 </ul>
