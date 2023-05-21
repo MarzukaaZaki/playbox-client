@@ -10,7 +10,7 @@ const Comments = () => {
             <br />
             <textarea placeholder="Share your thoughts..." className="textarea textarea-bordered textarea-lg w-full max-w-xs" ></textarea>
             <br />
-            <button className='btn btn-secondary'>Send</button>
+            <button className='btn btn-secondary my-3'>Send</button>
         </div>
     );
 };
