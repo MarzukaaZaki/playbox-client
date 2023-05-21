@@ -2,6 +2,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProviders';
 import UpdateModal from '../UpdateModal/UpdateModal';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const MyToys = () => {
     const { user } = useContext(AuthContext);
@@ -19,6 +22,26 @@ const MyToys = () => {
     }, [user])
 
     const navigate = useNavigate();
+
+    const handleUpdate = (data) =>{
+        fetch(` https://playbox-server.vercel.app/update/${data?._id}`,{
+            method: 'PUT',
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(result => {
+            console.log(result)
+            if(result.modifiedCount){
+                toast.success('Data Updated Sucessfully!');
+            }})
+
+      
+
+
+    }
     return (
         <div className="overflow-x-auto w-full">
             <h1 className='text-center text-3xl font-bold my-4'> My Toys</h1>
@@ -40,7 +63,7 @@ const MyToys = () => {
                     {/* row 1 */}
 
                     {toys?.map((toy) =>
-                        <tr>
+                        <tr toy={toy} key ={toy._id}>
                             <td>
                                 <div className="flex items-center space-x-3">
                                     <div className="avatar">
@@ -69,7 +92,7 @@ const MyToys = () => {
                                 <label htmlFor="update-modal" className="btn btn-ghost btn-outline me-2">update</label>
                                 <label htmlFor="my-modal-6" className="btn btn-ghost btn-outline">delete</label>
 
-                                <UpdateModal toy={toy}></UpdateModal>
+                                <UpdateModal toy={toy} handleUpdate ={handleUpdate}></UpdateModal>
 
                             </th>
                         </tr>
