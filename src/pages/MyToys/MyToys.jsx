@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProviders';
 import UpdateModal from '../UpdateModal/UpdateModal';
+import { useNavigate } from 'react-router-dom';
 
 const MyToys = () => {
     const { user } = useContext(AuthContext);
@@ -16,6 +17,8 @@ const MyToys = () => {
 
             })
     }, [user])
+
+    const navigate = useNavigate();
     return (
         <div className="overflow-x-auto w-full">
             <h1 className='text-center text-3xl font-bold my-4'> My Toys</h1>
@@ -59,7 +62,7 @@ const MyToys = () => {
                             <td>${toy.price}</td>
                             <td>{toy.quantity}</td>
                             <th>
-                                <button className="btn btn-ghost btn-xs">details</button>
+                                <button onClick={()=>navigate(`/toy/${toy._id}`)} className="btn btn-ghost btn-xs">details</button>
                             </th>
                             <th>
                                 {/* The button to open modal */}

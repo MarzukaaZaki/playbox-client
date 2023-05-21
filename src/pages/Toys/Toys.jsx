@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Toys = () => {
     const [toys, setToys] = useState([]);
@@ -20,6 +21,8 @@ const Toys = () => {
             
         })
     }
+
+    const navigate = useNavigate();
     return (
         <div className="overflow-x-auto w-full">
             <div className='text-center'>
@@ -64,7 +67,7 @@ const Toys = () => {
                             <td>${toy.price}</td>
                             <td>{toy.quantity}</td>
                             <th>
-                                <button className="btn btn-ghost btn-xs">details</button>
+                                <button onClick={()=>navigate(`/toy/${toy._id}`)} className="btn btn-ghost btn-xs">details</button>
                             </th>
                         </tr>
 

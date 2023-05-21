@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactStars from "react-rating-stars-component";
+import { useNavigate } from 'react-router-dom';
 
 const ToyByCategory = ({toy}) => {
     const {price, quantity, name, toyname, img, rating} = toy;
@@ -9,7 +10,7 @@ const ToyByCategory = ({toy}) => {
         value: parseInt(rating),
         edit: false
       };
-      
+    const navigate = useNavigate();
     return (
         <div className="card mx-4 mb-6 w-96 bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">
@@ -28,7 +29,7 @@ const ToyByCategory = ({toy}) => {
                 </div>
                 <p><ReactStars {...ratings} /></p>
                 <div className="card-actions">
-                    <button className="btn btn-primary">View Details</button>
+                    <button onClick={()=>navigate(`/toy/${toy._id}`)} className="btn btn-primary">View Details</button>
                 </div>
             </div>
         </div>
