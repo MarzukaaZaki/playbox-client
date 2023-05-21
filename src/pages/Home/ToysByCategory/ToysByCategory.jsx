@@ -9,7 +9,7 @@ const ToysByCategory = () => {
 
     }
     useEffect(() => {
-        fetch(`http://localhost:5000/all/${activeTab}`)
+        fetch(`https://playbox-server.vercel.app/all/${activeTab}`)
             .then(res => res.json())
             .then(result => {
                 console.log(result);

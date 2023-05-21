@@ -37,6 +37,8 @@ Playbox provides the following features:
 - [React Hook Form](https://react-hook-form.com/)
 - [React Toastify](https://fkhadra.github.io/react-toastify/introduction/)
 - [React Ratings Star Component](https://www.npmjs.com/package/react-rating-stars-component)
+- [React Tooltip](https://react-tooltip.com/docs/getting-started)
+- [React Awesome Slider]()
 - [React Responsive Masonry](https://www.npmjs.com/package/react-responsive-carousel)
 - [Tailwind CSS](https://tailwindcss.com/docs/installation)
 - [Daisy UI](https://daisyui.com/)

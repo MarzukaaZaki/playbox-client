@@ -3,6 +3,7 @@ import { AuthContext } from '../../../providers/AuthProviders';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo.png'
 import './Header.css'
+import { Tooltip } from 'react-tooltip'
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -48,7 +49,10 @@ const Header = () => {
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full me-2" >
 
-                                    <img src={user.photoURL} className='tooltip text-black' data-tip={user.displayName} />
+                                    <img src={user.photoURL} className='tooltip text-black' data-tooltip-id="my-tooltip"
+                                        data-tooltip-content={user.displayName}
+                                        data-tooltip-place="top" />
+                                        <Tooltip id="my-tooltip" />
 
 
                                 </div>

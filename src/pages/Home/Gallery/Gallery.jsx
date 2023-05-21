@@ -3,7 +3,7 @@ import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
 const Gallery = () => {
     const [toys, setToys] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/all')
+        fetch('https://playbox-server.vercel.app/all')
         .then(res => res.json())
         .then(result =>{
             console.log(result);

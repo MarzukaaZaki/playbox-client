@@ -4,7 +4,7 @@ const Toys = () => {
     const [toys, setToys] = useState([]);
     const [searchText, setSearchText]=useState("");
     useEffect(() => {
-        fetch('http://localhost:5000/all')
+        fetch('https://playbox-server.vercel.app/all')
             .then(res => res.json())
             .then(result => {
                 console.log(result);
@@ -13,7 +13,7 @@ const Toys = () => {
     }, [])
 
     const handleSearch = ()=>{
-        fetch(`http://localhost:5000/toySearchByCategory/${searchText}`)
+        fetch(`https://playbox-server.vercel.app/toySearchByCategory/${searchText}`)
         .then(res =>res.json())
         .then(result =>{
             setToys(result);
@@ -42,7 +42,7 @@ const Toys = () => {
                     {/* row 1 */}
 
                     {toys?.map((toy) =>
-                        <tr>
+                        <tr key={toy._id} toy={toy}>
                             <td>
                                 <div className="flex items-center space-x-3">
                                     <div className="avatar">

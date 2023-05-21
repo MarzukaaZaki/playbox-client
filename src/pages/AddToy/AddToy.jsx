@@ -12,7 +12,7 @@ const AddToy = () => {
     const onSubmit = data =>{ 
         console.log(data);
 
-        fetch('http://localhost:5000/addtoy',{
+        fetch('https://playbox-server.vercel.app/addtoy',{
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
