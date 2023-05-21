@@ -38,6 +38,7 @@ const Toys = () => {
                                 </div>
                                 <div>
                                     <div className="font-bold">{toy.toyname}</div>
+                                    <div className='text-sm'>{toy.name}</div>
                                     
                                 </div>
                             </div>
