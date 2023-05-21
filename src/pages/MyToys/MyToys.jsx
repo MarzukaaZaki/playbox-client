@@ -26,7 +26,9 @@ const MyToys = () => {
                         <th>Sub-Category</th>
                         <th>Price</th>
                         <th>Available Quantity</th>
-                        <th></th>
+                        <th>View</th>
+                        <th>Perform an Action</th>
+                       
                     </tr>
                 </thead>
                 <tbody>
@@ -56,6 +58,10 @@ const MyToys = () => {
                         <td>{toy.quantity}</td>
                         <th>
                             <button className="btn btn-ghost btn-xs">details</button>
+                        </th>
+                        <th>
+                            <button className="btn btn-ghost btn-outline btn-xs me-4">update</button>
+                            <button className="btn btn-ghost btn-outline btn-xs">delete</button>
                         </th>
                     </tr>
                     

@@ -2,16 +2,30 @@ import React, { useEffect, useState } from 'react';
 
 const Toys = () => {
     const [toys, setToys] = useState([]);
-    useEffect(()=>{
+    const [searchText, setSearchText]=useState("");
+    useEffect(() => {
         fetch('http://localhost:5000/all')
-        .then(res => res.json())
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+                setToys(result);
+            })
+    }, [])
+
+    const handleSearch = ()=>{
+        fetch(`http://localhost:5000/toySearchByCategory/${searchText}`)
+        .then(res =>res.json())
         .then(result =>{
-            console.log(result);
             setToys(result);
+            
         })
-    },[])
+    }
     return (
         <div className="overflow-x-auto w-full">
+            <div className='text-center'>
+                <h1 className='text-3xl font-bold my-4'>Toys</h1>
+                <input type="text" placeholder="Search Toys" className="input input-bordered w-full max-w-xs mb-6" onChange={(event)=>{setSearchText(event.target.value)}} /> <button className='btn btn-primary btn-outline' onClick={handleSearch}>Search</button>
+            </div>
             <table className="table w-full">
                 {/* head */}
                 <thead>
@@ -27,34 +41,34 @@ const Toys = () => {
                 <tbody>
                     {/* row 1 */}
 
-                    { toys?.map( (toy)=>
+                    {toys?.map((toy) =>
                         <tr>
-                        <td>
-                            <div className="flex items-center space-x-3">
-                                <div className="avatar">
-                                    <div className="mask mask-squircle w-12 h-12">
-                                        <img src={toy.img} alt="Avatar Tailwind CSS Component" />
+                            <td>
+                                <div className="flex items-center space-x-3">
+                                    <div className="avatar">
+                                        <div className="mask mask-squircle w-12 h-12">
+                                            <img src={toy.img} alt="Avatar Tailwind CSS Component" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div className="font-bold">{toy.toyname}</div>
+                                        <div className='text-sm text-gray-600 font-bold'>{toy.name}</div>
+
                                     </div>
                                 </div>
-                                <div>
-                                    <div className="font-bold">{toy.toyname}</div>
-                                    <div className='text-sm text-gray-600 font-bold'>{toy.name}</div>
-                                    
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                        {toy.category}
-                            
-                        </td>
-                        <td>${toy.price}</td>
-                        <td>{toy.quantity}</td>
-                        <th>
-                            <button className="btn btn-ghost btn-xs">details</button>
-                        </th>
-                    </tr>
-                    
-                   ) }
+                            </td>
+                            <td>
+                                {toy.category}
+
+                            </td>
+                            <td>${toy.price}</td>
+                            <td>{toy.quantity}</td>
+                            <th>
+                                <button className="btn btn-ghost btn-xs">details</button>
+                            </th>
+                        </tr>
+
+                    )}
                 </tbody>
                 <tfoot>
                     <tr>
