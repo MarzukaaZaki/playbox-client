@@ -19,7 +19,8 @@ const Registration = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photo.value;
-        console.log(name, email, password, photo);
+        const img = form.img.files[0];
+        console.log(name, email, password, photo, img);
 
         createUser(email, password)
             .then(result => {
@@ -88,6 +89,15 @@ const Registration = () => {
                             <input type="url" placeholder="Upload Photo URL" name='photo' className="input input-bordered" />
 
                         </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Photo</span>
+                            </label>
+                            <input type="file" placeholder="Upload pic" name='img' className="input input-bordered" />
+
+                        </div>
+
+
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Register</button>
                         </div>

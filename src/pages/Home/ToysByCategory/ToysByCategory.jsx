@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ToyByCategory from '../ToyByCategory/ToyByCategory';
+import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 
 const ToysByCategory = () => {
     const [toys, setToys] = useState([]);
@@ -18,7 +19,7 @@ const ToysByCategory = () => {
     }, [activeTab])
     return (
         <div className='text-center'>
-            <h1 className='text-3xl font-bold my-6'>Shop By Category</h1>
+            <SectionTitle heading='Shop By Category' subHeading='Browse Our Collection'></SectionTitle>
             <div className='flex flex-wrap justify-center'>
                 <div onClick={() => handleTabClick("Pokemon")} className={` rounded   font-semibold px-6 py-4 shadow-md ${activeTab == "Pokemon" ? "bg-indigo-500 text-white" : ""}`}>Pokemon</div>
                 <div onClick={() => handleTabClick("Kirby")} className={`rounded   font-semibold px-6 py-4 shadow-md ${activeTab == "Kirby" ? "bg-indigo-500 text-white" : ""}`}>Kirby</div>

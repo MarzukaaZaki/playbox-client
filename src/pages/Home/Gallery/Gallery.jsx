@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
+import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 const Gallery = () => {
     const [toys, setToys] = useState([]);
     useEffect(()=>{
@@ -14,7 +15,7 @@ const Gallery = () => {
     console.log(toyImages);
     return (
         <div className='text-center'>
-            <h1 className='text-3xl font-bold mb-3'>Toy Gallery</h1>
+            <SectionTitle subHeading='Our Best Picks' heading='Toy Gallery'/>
             <ResponsiveMasonry
                 columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}
             >
@@ -25,7 +26,7 @@ const Gallery = () => {
                             src={image}
                             style={{width: "100%", display: "block"}}
                             alt=""
-                            className='border'
+                           className='p-5 border'
                         />
                     ))}
                 </Masonry>
