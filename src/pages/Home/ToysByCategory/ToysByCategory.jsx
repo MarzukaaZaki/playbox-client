@@ -17,6 +17,8 @@ const ToysByCategory = () => {
                 setToys(result);
             })
     }, [activeTab])
+
+    console.log(toys)
     return (
         <div className='text-center'>
             <SectionTitle heading='Shop By Category' subHeading='Browse Our Collection'></SectionTitle>

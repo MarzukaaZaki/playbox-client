@@ -6,6 +6,9 @@ import Comments from './Comments/Comments';
 import Sales from './Sales/Sales';
 import ToysByAge from './ToysByAge/ToysByAge';
 import FeaturedBlogposts from './FeaturedBlogposts/FeaturedBlogposts';
+import FeaturedMerchendise from './FeaturedMerchandise/FeaturedMerchendise';
+import Shipping from './Shipping/Shipping';
+
 
 
 const Home = () => {
@@ -16,9 +19,10 @@ const Home = () => {
             <ToysByAge></ToysByAge>
             <ToysByCategory></ToysByCategory>
             <FeaturedBlogposts></FeaturedBlogposts>
+            <FeaturedMerchendise></FeaturedMerchendise>
             <Comments></Comments>
-            
             <Sales></Sales>
+            <Shipping></Shipping>
         </div>
     );
 };
